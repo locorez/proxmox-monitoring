@@ -1,0 +1,11 @@
+# SMART short (diari)
+0 3 * * * /root/scripts/smart-short-check.sh >> /var/log/smart-check.log 2>&1
+
+# SMART long (mensual)
+0 7 1 * * /root/scripts/smart-long-check.sh >> /var/log/smart-long.log 2>&1
+
+# Backup checker (setmanal)
+0 4 * * 6 /root/scripts/Proxmox-Backup-Check.sh >> /var/log/backup-check.log 2>&1
+
+# RAID monitor (cada 5 min)
+*/5 * * * * /root/scripts/monitor_raid.sh >> /var/log/raid.log 2>&1
